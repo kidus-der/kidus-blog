@@ -34,13 +34,20 @@ const Blog = defineDocumentType(() => ({
       required: true,
     },
     tags: {
-      type: 'list',
-      of: { type: 'string' },
+      type: "list",
+      of: { type: "string" },
+    },
+  },
+  computedFields: {
+    url: {
+      type: "string",
+      resolve: (doc) => "/blog/${doc._raw.flattenedPath}",
     },
   },
 }));
 
 export default makeSource({
-  /* options */
+  /* options */ 
   contentDirPath: "content",
+  documentTypes: [Blog]
 });
