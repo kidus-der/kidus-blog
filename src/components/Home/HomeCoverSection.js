@@ -28,6 +28,12 @@ const HomeCoverSection = ({ blogs }) => {
           <Link href={'/categories/${blog.tags[0]}'}>
             {blog.tags[0]}
           </Link>
+          <h1>
+            {blog.title}
+          </h1>
+          <p>
+            {blog.description}
+          </p>
         </div>
       </article>
     </div>
