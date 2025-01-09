@@ -8,7 +8,7 @@ const BlogLayoutOne = ({ blog }) => {
     <div className=" inline-block overflow-hidden rounded-xl">
       <div
         className="absolute top-0 left-0 bottom-0 right-0 h-full
-        bg-gradient-to-b from-transparent from-0% to-dark/90 rounded-xl z-0"
+        bg-gradient-to-b from-transparent from-0% to-dark/90 rounded-xl z-10"
       />
       <Image
         // render the image of the latest blog
@@ -18,7 +18,7 @@ const BlogLayoutOne = ({ blog }) => {
         alt={blog.title}
         width={blog.image.width}
         height={blog.image.height}
-        className="w-full h-full object-center object-cover rounded-xl -z-10"
+        className="w-full h-full object-center object-cover rounded-xl"
       />
 
       <div className=" w-full absolute bottom-0 p-10 z-20 ">
