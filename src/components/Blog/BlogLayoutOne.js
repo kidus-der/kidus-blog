@@ -22,15 +22,17 @@ const BlogLayoutOne = ({ blog }) => {
       />
 
       <div className=" w-full absolute bottom-0 p-10 z-20 ">
-        <Tag link={"/categories/${blog.tags[0]}"} name={blog.tags[0]} />
+        <Tag link={"/categories/${blog.tags[0]}"} name={blog.tags[0]}
+            className="px-6 text-sm py-2 !border"
+         />
         <Link href={blog.url} className="mt-6">
-          <h1 className="font-bold capitalize text-4xl">
-            <span className="bg-gradient-to-r from-accent to-accent bg-[length:0px_6px] hover:bg-[length:100%_6px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500">
+          <h2 className="font-bold capitalize text-xl text-light mt-4">
+            <span className="bg-gradient-to-r from-accent to-accent bg-[length:0px_6px]
+            hover:bg-[length:100%_6px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500">
               {blog.title}
             </span>
-          </h1>
+          </h2>
         </Link>
-        <p className="inline-block mt-4 text-xl font-in">{blog.description}</p>
       </div>
     </div>
   );
