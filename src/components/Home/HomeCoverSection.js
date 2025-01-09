@@ -8,7 +8,7 @@ const HomeCoverSection = ({ blogs }) => {
   const sortedBlogs = sortBlogs(blogs);
 
   // get the latest blog
-  const blog = sortedBlogs[0]; // change the index to get a different blog
+  const blog = sortedBlogs[1]; // change the index to get a different blog
 
   // render the latest blog
   return (
