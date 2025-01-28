@@ -40,7 +40,14 @@ const Blog = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: "string",
-      resolve: (doc) => "/blog/${doc._raw.flattenedPath}",
+      resolve: (doc) => {
+        // slug creation from the blog title
+        const slug = doc.title
+          .toLowerCase()
+          .replace(/\s+/g, '-')
+          .replace(/[^\w-]+/g, '');
+        return `/blogs/${slug}`;
+      },
     },
   },
 }));
