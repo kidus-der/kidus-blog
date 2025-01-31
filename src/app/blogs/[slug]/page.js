@@ -1,3 +1,4 @@
+import BlogDetails from "@/src/components/Blog/BlogDetails";
 import Tag from "@/src/components/Elements/Tag";
 import { allBlogs } from "contentlayer/generated";
 import Image from "next/image";
@@ -34,6 +35,7 @@ export default function BlogPage({ params }) {
           className="aspect-square w-full h-full object-cover object-center"
         />
       </div>
+      <BlogDetails blog={blog} slug={params.slug}/>
     </article>
   );
 }
