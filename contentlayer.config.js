@@ -2,10 +2,15 @@
 
 import { makeSource, defineDocumentType } from "@contentlayer/source-files";
 import readingTime from "reading-time";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
+import { theme } from "./project files/siteMetaData";
 
 const Blog = defineDocumentType(() => ({
   name: "Blog",
   filePathPattern: "**/**/*.mdx",
+  contentType: "mdx",
   fields: {
     title: {
       type: "string",
@@ -45,20 +50,32 @@ const Blog = defineDocumentType(() => ({
         // slug creation from the blog title
         const slug = doc.title
           .toLowerCase()
-          .replace(/\s+/g, '-')
-          .replace(/[^\w-]+/g, '');
+          .replace(/\s+/g, "-")
+          .replace(/[^\w-]+/g, "");
         return `/blogs/${slug}`;
       },
     },
     readingTime: {
       type: "json",
-      resolve: (doc) => readingTime(doc.body.raw)
-    }
+      resolve: (doc) => readingTime(doc.body.raw),
+    },
   },
 }));
 
+const codeOptions = {
+  theme: "github-dark",
+};
+
 export default makeSource({
-  /* options */ 
+  /* options */
   contentDirPath: "content",
-  documentTypes: [Blog]
+  documentTypes: [Blog],
+  mdx: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [
+      rehypeSlug,
+      [rehypeAutolinkHeadings, { behavior: "append" }],
+      [rehypePrettyCode, codeOptions],
+    ],
+  },
 });

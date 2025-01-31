@@ -1,4 +1,5 @@
 import BlogDetails from "@/src/components/Blog/BlogDetails";
+import RenderMdx from "@/src/components/Blog/RenderMdx";
 import Tag from "@/src/components/Elements/Tag";
 import { allBlogs } from "contentlayer/generated";
 import Image from "next/image";
@@ -36,6 +37,14 @@ export default function BlogPage({ params }) {
         />
       </div>
       <BlogDetails blog={blog} slug={params.slug}/>
+
+      <div className="grid grid-cols-12 gap-16 mt-8 px-10"> 
+        <div className="col-span-4">
+          ToC
+        </div>
+
+        <RenderMdx blog={blog}/>
+      </div>
     </article>
   );
 }

@@ -10,8 +10,8 @@ module.exports = {
       colors: {
         dark: "#1b1b1b",
         light: "#fff",
-        accent: "#7B00D3", 
-        accentDark: "#ffdb4d",
+        accent: "#f05500", 
+        accentDark: "#08d4bf",
         gray: "#747474",
       },
       fontFamily: {
@@ -22,5 +22,6 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
   ],
 };
